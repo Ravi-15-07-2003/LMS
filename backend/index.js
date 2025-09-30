@@ -10,6 +10,7 @@ app.use(cors({
     origin:"http://localhost:5173",
     credentials:true
 }))
+
 app.use("/api/auth", authRouter)
 app.get("/" , (req,res)=>{
     res.send("Hello From Server")
