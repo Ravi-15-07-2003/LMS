@@ -60,7 +60,17 @@ console.log("Average Rating:", avgRating);
 
   
 
- 
+  const fetchCourseData = async () => {
+    courseData.map((item) => {
+      if (item._id === courseId) {
+      dispatch(setSelectedCourseData(item))
+        console.log(selectedCourseData)
+      
+
+        return null;
+      }
+
+    })
 
   }
     const checkEnrollment = () => {
@@ -170,7 +180,18 @@ setIsEnrolled(true)
         <div className="flex flex-col md:flex-row gap-6 ">
              
           {/* Thumbnail */}
-
+          <div className="w-full md:w-1/2">
+             <FaArrowLeftLong  className='text-[black] w-[22px] h-[22px] cursor-pointer' onClick={()=>navigate("/")}/>
+            {selectedCourseData?.thumbnail ? <img
+              src={selectedCourseData?.thumbnail}
+              alt="Course Thumbnail"
+              className="rounded-xl w-full object-cover"
+            /> :  <img
+              src={img}
+              alt="Course Thumbnail"
+              className="rounded-xl  w-full  object-cover"
+            /> }
+          </div>
 
           {/* Course Info */}
           <div className="flex-1 space-y-2 mt-[20px]">
@@ -190,7 +211,7 @@ setIsEnrolled(true)
 
             {/* Highlights */}
             <ul className="text-sm text-gray-700 space-y-1 pt-2">
-             
+              <li>✅ 10+ hours of video content</li>
               <li>✅ Lifetime access to course materials</li>
               
             </ul>
@@ -224,7 +245,9 @@ setIsEnrolled(true)
         {/* Who This Course Is For */}
         <div>
           <h2 className="text-xl font-semibold mb-2">Who This Course is For</h2>
-         
+          <p className="text-gray-700">
+            Beginners, aspiring developers, and professionals looking to upgrade skills.
+          </p>
         </div>
 
         {/* course lecture   */}
@@ -325,6 +348,12 @@ setIsEnrolled(true)
             className="w-16 h-16 rounded-full object-cover"
           />
           }
+          <div>
+            <h3 className="text-lg font-semibold">{creatorData?.name}</h3>
+            <p className="md:text-sm text-gray-600 text-[10px] ">{creatorData?.description}</p>
+            <p className="md:text-sm text-gray-600 text-[10px] ">{creatorData?.email}</p>
+            
+          </div>
         </div>
         <div>
           <p className='text-xl font-semibold mb-2'>Other Published Courses by the Educator -</p>
