@@ -7,7 +7,6 @@ frontend/dist
 frontend/dist-ssr
 frontend/*.local
 frontend/.env
-frontend/src/assets
 # Frontend logs
 frontend/logs
 frontend/*.log
